@@ -4,161 +4,76 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		int mesafe , yas, yolculuk_tipi;
+		double normal_tutar, indirimli_bilet, yas_indirimlibilet, gidisdönüs_indirimi, toplam_tutar = 0;
 		
-		 Scanner input = new Scanner(System.in);
-
-	        int gun, ay;
-
-	        System.out.print("Doğduğunuz günü girin:");
-	        gun = input.nextInt();
-
-	        System.out.print("Doğduğunuz ayı girin:");
-	        ay = input.nextInt();
-
-	        if (ay == 1) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 21) {
-	                    System.out.print("Burcunuz oğlak");
-	                } else {
-	                    System.out.print("Burcunuz kova.");
-	                }
-	            } else {
-	                System.out.print("1.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 2) {
-	            if (gun >= 1 && gun <= 28) {
-	                if (gun <= 19) {
-	                    System.out.print("Burcunuz kova.");
-	                } else {
-	                    System.out.print("Burcunuz balık.");
-	                }
-	            } else {
-	                System.out.print("2.ay 28 gündür.");
-	            }
-
-	        } else if (ay == 3) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 20) {
-	                    System.out.print("Burcunuz balık.");
-	                } else {
-	                    System.out.print("Burcunuz koç.");
-	                }
-	            } else {
-	                System.out.print("3.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 4) {
-	            if (gun >= 1 && gun <= 30) {
-	                if (gun <= 20) {
-	                    System.out.print("Burcunuz koç.");
-	                } else {
-	                    System.out.print("Burcunuz boğa.");
-	                }
-	            } else {
-	                System.out.print("4.ay 30 gündür.");
-	            }
-
-	        } else if (ay == 5) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 21) {
-	                    System.out.print("Burcunuz boğa.");
-	                } else {
-	                    System.out.print("Burcunuz ikizler.");
-	                }
-	            } else {
-	                System.out.print("5.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 6) {
-	            if (gun >= 1 && gun <= 30) {
-	                if (gun <= 22) {
-	                    System.out.print("Burcunuz ikizler.");
-	                } else {
-	                    System.out.print("Burcunuz yengeç.");
-	                }
-	            } else {
-	                System.out.print("6.ay 30 gündür.");
-	            }
-
-	        } else if (ay == 7) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 22) {
-	                    System.out.print("Burcunuz yengeç.");
-	                } else {
-	                    System.out.print("Burcunuz aslan.");
-	                }
-	            } else {
-	                System.out.print("7.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 8) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 22) {
-	                    System.out.print("Burcunuz aslan.");
-	                } else {
-	                    System.out.print("Burcunuz başak.");
-	                }
-	            } else {
-	                System.out.print("8.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 9) {
-	            if (gun >= 1 && gun <= 30) {
-	                if (gun <= 22) {
-	                    System.out.print("Burcunuz başak.");
-	                } else {
-	                    System.out.print("Burcunuz terazi.");
-	                }
-	            } else {
-	                System.out.print("9.ay 30 gündür.");
-	            }
-
-	        } else if (ay == 10) {
-	            if (gun >= 1 && gun <= 31) {
-	                if (gun <= 22) {
-	                    System.out.print("Burcunuz terazi.");
-	                } else {
-	                    System.out.print("Burcunuz akrep.");
-	                }
-	            } else {
-	                System.out.print("10.ay 31 gündür.");
-	            }
-
-	        } else if (ay == 11) {
-	            if (gun >= 1 && gun <= 30) {
-	                if (gun <= 21) {
-	                    System.out.print("Burcunuz akrep.");
-	                } else {
-	                    System.out.print("Burcunuz yay.");
-	                }
-	            } else {
-	                System.out.print("11.ay 30 gündür.");
-	            }
-
-	        } else if (ay == 12) {
-	            if (gun >= 1 && gun <= 30) {
-	                if (gun <= 21) {
-	                    System.out.print("Burcunuz yay.");
-	                } else {
-	                    System.out.print("Burcunuz oğlak.");
-	                }
-	            } else {
-	                System.out.print("12.ay 31 gündür.");
-	            }
-
-	        } else {
-	            System.out.println("Yanlis deger girdiniz.");
-	        }
-	    }
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Gideceğiniz mesafeyi km cinsinden giriniz. ");
+		mesafe = scanner.nextInt();
+		
+		
+		System.out.println("Yaşınızı giriniz giriniz. ");
+		yas = scanner.nextInt();
+		
+		System.out.println("Yolculuk_tipi tipinizi seçiniz (1--> tek yön  2-->gidisdönüs): ");
+		yolculuk_tipi = scanner.nextInt();
+		
+		if(yas>0 && mesafe>0) {
+			if(yas<12 && yolculuk_tipi==1) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.50);
+				yas_indirimlibilet= normal_tutar - indirimli_bilet;
+				System.out.println("Toplam Tutar: " + yas_indirimlibilet); 
+		
+			}else if(yas<12 && yolculuk_tipi==2) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.50);
+				yas_indirimlibilet= normal_tutar - indirimli_bilet;
+				gidisdönüs_indirimi = yas_indirimlibilet *(0.20);
+				toplam_tutar = (normal_tutar-gidisdönüs_indirimi)*2;
+				System.out.println("Toplam Tutar: " + gidisdönüs_indirimi); 
+				
+			}else if(yas>=12 && yas<24 && yolculuk_tipi==1) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.10);
+				toplam_tutar = normal_tutar-indirimli_bilet;
+				System.out.println("Toplam tutar: " +toplam_tutar);
+				
+			}else if(yas>=12 && yas<24 && yolculuk_tipi==2) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.10);
+				gidisdönüs_indirimi = indirimli_bilet *(0.20);
+				toplam_tutar = (normal_tutar-gidisdönüs_indirimi)*2;
+				System.out.println("Toplam Tutar: " + toplam_tutar); 	
+				
+			}else if(yas>65 && yolculuk_tipi==1) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.30);
+				toplam_tutar=normal_tutar-indirimli_bilet;
+				System.out.println("Toplam Tutar: " + toplam_tutar); 	
+				
+			}else if(yas>65 && yolculuk_tipi==2) {
+				normal_tutar = mesafe * (0.10);
+				indirimli_bilet = normal_tutar*(0.30);
+				toplam_tutar = indirimli_bilet*2;
+				System.out.println("Toplam Tutar: " + toplam_tutar); 	
+			
+		
+			}else if(yas>=24 && yas<=65 && yolculuk_tipi==1) {
+				toplam_tutar = mesafe * (0.10);
+				System.out.println("Toplam Tutar: " + toplam_tutar); 	
+				
+			}else if(yas>=24 && yas<=65 && yolculuk_tipi==2) {
+				normal_tutar = mesafe * (0.10);
+				toplam_tutar = toplam_tutar*2;
+				System.out.println("Toplam Tutar: " + toplam_tutar); 	
+			}
+			else {
+				System.out.println("Hatalı veri verdiniz");
+			}
+	 
+		}
 	}
-		
-		
-		
-		
-		
-		
-		
-		
-
-	
+}
